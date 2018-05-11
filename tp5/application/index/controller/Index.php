@@ -12,4 +12,9 @@ class Index
     {
     	return view("open");
     }
+
+    public function jump()
+    {
+    	return view("jump");
+    }
 }
