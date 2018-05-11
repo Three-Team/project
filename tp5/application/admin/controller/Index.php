@@ -1,15 +1,28 @@
 <?php
 namespace app\admin\controller;
+use think\Controller;
+use think\view;
+use think\Db;
 
-class Index
+class Index extends Controller
 {
-    public function index()
+	
+
+    /*
+	**后台展示
+	*/
+    public function show()
     {
-        return view("index");
+    	$view = new View();
+    	return $view->fetch();
     }
 
-    public function open()
+    /*
+	**后台加载首页
+	*/
+    public function shop_index()
     {
-    	return view("open");
+    	$view = new View();
+    	return $view->fetch();
     }
 }
