@@ -40,15 +40,12 @@
   <table class="table table_list table_striped table-bordered" id="sample-table">
   <thead>
   <tr>
-  <th width="30"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
+ 
    <th width="50">排序</th>
-   <th width="200">订单编号</th>   
-   <th width="150">下单时间</th>
-   <th width="80">消费金额</th>
-   <th width="50">数量</th>
-   <th width="100">状态</th>
-   <th width="150">发货时间</th>
-   <th width="">备注</th>
+   <th width="200">商店编号</th>   
+   <th width="150">商店名称</th>
+   <th width="80">法定代表人</th>
+   <th width="150">开店时间</th>
    <th width="150">操作</th>
    </tr>   
   </thead>
@@ -63,8 +60,9 @@
 </html>
 <script>
 var dataSet=[
- ['<label><input type="checkbox" class="ace"><span class="lbl"></span></label>','1','201608250560345','2016-08-25 12:23:34','345.50','3','已完成','2016-08-28 15:23:12','',' <a href="javascript:void()" onclick="picture_del(this,'+10001+')" class="btn btn-danger operation_btn">删除</a> <a href="/admin/Order/order_show" onclick="picture_img(this,'+234+')" class="btn bg-deep-blue operation_btn">查看</a>'],
- ['<label><input type="checkbox" class="ace"><span class="lbl"></span></label>','1','201608250560345','2016-08-25 12:23:34','345.50','3','已完成','2016-08-28 15:23:12','',' <a href="javascript:void()" onclick="picture_del(this,'+10002+')" class="btn btn-danger operation_btn">删除</a> <a href="/admin/Order/order_show" onclick="picture_img(this,'+234+')" class="btn bg-deep-blue operation_btn">查看</a>'],
+ {foreach name='data' item="v"}
+ ['{$v.s_id}','{$v.s_rand}','{$v.s_shop}','{$v.s_name}','','已完成','2016-08-28 15:23:12','',' <a href="javascript:void()" onclick="picture_del(this,'+10001+')" class="btn btn-danger operation_btn">删除</a> <a href="/admin/Order/order_show" onclick="picture_img(this,'+234+')" class="btn bg-deep-blue operation_btn">查看</a>'],
+ {/foreach}
 ];
  jQuery(function($) {
         var oTable1 = $('#sample-table').dataTable( {

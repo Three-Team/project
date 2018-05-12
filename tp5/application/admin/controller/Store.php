@@ -12,8 +12,10 @@ class Store extends Controller
 	*/
     public function show()
     {
-    	$view = new View();
-    	return $view->fetch();
+    	
+        $data = db("for_shop")->where("s_status",1)->select();
+
+    	return view("show",['data'=>$data]);
     }
 
     /*
