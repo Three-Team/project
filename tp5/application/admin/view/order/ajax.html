@@ -1,0 +1,12 @@
+{volist name="data" id="v"}
+	<tr> 
+		<td>{$v['order_num']}</td>
+		<td>{$v['s_shop']}</td>
+		<td>{$v['pay_time']}</td>
+		<td>{$v['pay_price']}</td>
+		<td>{$v['favourable']}</td>
+		<td>{$v['shop_num']}</td>
+		<td>{if $v["pay_type"] == 0}微信{else /}支付宝{/if}</td>
+		<td><a href="javascript:void()" onclick="picture_del(this,'+10001+')" class="btn btn-danger operation_btn">删除</a></td>
+	</tr>
+{/volist} 

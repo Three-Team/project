@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>修改信息</title>
+<base href="__ROOT__/index/web/">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_410780_vmhsz3ig7mwbfbt9.css">
+<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css">
+<script src="js/jquery-1.12.1.min.js"></script>
+<script src="js/swiper-3.4.2.jquery.min.js"></script>
+</head>
+
+<body>
+<!--top-->
+<div class="width100 bj_red fixed" style="height:45px;top:0;left:0;">
+	<div class="width96 center relative" style="height:45px;">
+    	<a href="javascript:history.go(-1)" class="absolute" style="width:16px;height:27px;top:9px;left:0;"><img src="images/return.png" width="16" height="27"></a>
+        <h3 class="tcenter fff font20 font100" style="line-height:45px;">修改信息</h3>
+    </div>
+</div>
+<form action="{:url('shop/update')}?id={$data.s_id}" method="post" enctype="multipart/form-data">
+<div class="width100 hidden" style="margin-top:45px;margin-bottom:57px;">
+	
+		<div class="width96 hidden center">
+        	<div class="width100 center hidden borderb" style="margin-top:23px;padding-bottom:10px;">
+                <span class="font14">店铺名称</span>
+                <input type="text" style="outline:none;border:0;text-indent:18px;" placeholder ="{$data.s_shop}" id="shop" name="s_shop">
+        </div>
+         <div class="width100 center hidden" style="margin-top:23px;padding-bottom:10px;">
+                <span class="font14">联系电话</span>
+                <input type="text" style="outline:none;border:0;text-indent:18px;" placeholder ="{$data.s_tel}" id="tel" name="s_tel">
+        </div>
+        <div class="width100 center hidden borderb" style="margin-top:13px;padding-bottom:10px;">
+            <p class="font14">店铺图片</p>
+            <!--top-->
+            <div class="width100 hidden door_pt_in" style="min-height:70px">
+                
+                <b style='background:url("__ROOT__/{$data.s_photo}") no-repeat center;background-size:contain' ></b>
+            </div>
+            <!--bottom-->
+            <div class="sc">+
+                <input type="file" multiple onchange="upload(this)" name="img">
+            </div>
+            
+        </div>
+       
+    	</div>
+    	
+    	
+    </div>
+    <button class="width96 bj_red fff tcenter block center" style="height:36px;line-height:36px;border-radius:18px;margin-top:64px;">提交资料</button>
+</form>
+</div>
+</body>
+</html>
+<script>
+function upload(obj){
+    var n = obj.files.length;
+    //var html = '';
+    for (var i = 0;i<n ;i++ ){
+        var url = window.URL.createObjectURL(obj.files[i]);
+        $(obj).parent().prev().empty().append('<b style=\"background:url('+url+') no-repeat center;background-size:contain"><a href="javascript:void(0)" id="d">x</a></b>')
+        }
+    }
+    $(document).on("click","#d",function(){
+         $(this).parent().remove();
+        $(".door_pt_in").append('<b style=\"background:url('+'__ROOT__/{$data.s_photo}'+') no-repeat center;background-size:contain"></b>')
+         
+    })
+    
+    $("#shop,#pos,#tel").on("focus",function(){
+      
+        $(this).removeAttr("placeholder");
+    });
+
+    
+</script>

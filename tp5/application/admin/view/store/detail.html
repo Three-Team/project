@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="__ROOT__/admin/index/css/shop.css" type="text/css" rel="stylesheet" />
+<link href="__ROOT__/admin/index/css/Sellerber.css" type="text/css"  rel="stylesheet" />
+<link href="__ROOT__/admin/index/css/bkg_ui.css" type="text/css"  rel="stylesheet" />
+<link href="__ROOT__/admin/index/font/css/font-awesome.min.css"  rel="stylesheet" type="text/css" />
+<script src="__ROOT__/admin/index/js/jquery-1.9.1.min.js" type="text/javascript" ></script>
+<script type="text/javascript" src="__ROOT__/admin/index/js/jquery.cookie.js"></script>
+<script src="__ROOT__/admin/index/js/shopFrame.js" type="text/javascript"></script>
+<script src="__ROOT__/admin/index/js/Sellerber.js" type="text/javascript"></script>
+<script src="__ROOT__/admin/index/js/layer/layer.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js" type="text/javascript"></script>
+<script src="js/respond.min.js"></script>
+<script src="js/css3-mediaqueries.js"  type="text/javascript"></script>
+  <![endif]-->
+<title>详细信息</title>
+</head>
+
+<body class="">
+<div class="Interface_spacing clearfix">
+  <div class="order_detailed">
+    <div class="order_number">
+    店铺号：<b>{$data.s_rand}</b>
+    <span class="r_f">申请时间：{$data.s_time|date="y-m-d h:i:s",###}</span>
+    </div>
+    <div class="order_content clearfix">
+     <div class="Buyers_info margin-bottom clearfix">
+       <ul>
+       <li class="address"><label class="title_name">店铺名称：</label><span>{$data.s_shop}</span></li>
+       <li class="address"><label class="title_name">店铺类型：</label><span>{$data.t_id}</span></li>
+       <li class="address"><label class="title_name">申&nbsp&nbsp请&nbsp&nbsp人：</label><span>{$data.s_name}</span></li>
+       <li class="address"><label class="title_name">联系电话：</label><span>{$data.s_tel}</span></li>
+       <li class="address"><label class="title_name">店铺地址：</label><span>{$data.s_position}</span></li>
+       <li ><label class="title_name">营业执照：</label><span><img src="__ROOT__/{$data.s_photo}"  width="80px" height="80px"/></span></li>
+        <li ><label class="title_name">申请人身份证：</label><span><img src="__ROOT__/{$data.s_number_photo}"  width="80px" height="80px"/></span></li>       
+       </ul>
+     </div>
+    <!--  <table  class="table table_list table_striped  table-bordered">
+      <thead>
+       <tr>
+        <th>产品名称</th>
+        <th width="100">原价</th>
+        <th width="100">现价</th>
+        <th width="100">优惠</th>
+        <th width="50">数量</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td class="product_name text-align">
+        <a href="#" class="link_name">
+       
+        <div class="l_f content padding">
+        <p>正宗福鼎特产祥利蜜汁鸡翅乡巴佬美味食品秘制鸡翅膀小吃</p>
+        <p class="color">1.2kg/1件</p>
+        </div>
+        </a>
+        </td>
+        <td>140</td>
+        <td>105</td>
+        <td>35</td>
+        <td>1</td>
+       </tr>
+        <tr>
+        <td class="product_name text-align">
+        <a href="#" class="link_name">
+        <div class="l_f img"><img src="../products/p_45.jpg"  width="80px" height="80px"/></div>
+        <div class="l_f content padding">
+        <p>正宗福鼎特产祥利蜜汁鸡翅乡巴佬美味食品秘制鸡翅膀小吃</p>
+        <p class="color">1.2kg/1件</p>
+        </div>
+        </a>
+        </td>
+        <td>140</td>
+        <td>105</td>
+        <td>35</td>
+        <td>1</td>
+       </tr>
+      </tbody>
+     </table> -->
+     
+     <div class="right_Price" style="border-top:1px solid #999">
+      <p style="margin-top:5px"><a href="{:url('store/exam')}?id={$data.s_id}"  class="btn bg-green operation_btn">审核</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{:url('store/status')}" class="btn bg-deep-blue operation_btn">返回</a></a></p>
+      
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+<script>
+/***********图片查看**********/
+function logistics_info(){
+   layer.open({
+        type: 1,
+        title: '物流信息',
+    maxmin: true, 
+    shadeClose:false, //点击遮罩关闭层
+        area : ['600px' , '400px'],
+        content:$('#logistics_info'),
+   });
+  }
+/*******滚动条*******/
+$("body").niceScroll({  
+  cursorcolor:"#888888",  
+  cursoropacitymax:1,  
+  touchbehavior:false,  
+  cursorwidth:"5px",  
+  cursorborder:"0",  
+  cursorborderradius:"5px"  
+});
+</script>

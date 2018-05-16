@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>快速注册</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="__ROOT__/index/assets/js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="__ROOT__/index/assets/js/login.js"></script>
+<link href="__ROOT__/index/assets/css/login2.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>注册<sup>2018</sup></h1>
+
+<div class="login" style="margin-top:50px;">
+    
+    <div class="header">
+        <div class="switch" id="switch"><!-- <a class="switch_btn_focus" id="switch_qlogin" href="javascript:void(0);" tabindex="7">快速登录</a> -->
+			<a class="switch_btn" id="switch_login" href="javascript:void(0);" tabindex="8">快速注册</a>
+			<div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 64px; left: 0px;"></div>
+        </div>
+    </div>    
+  
+    
+    <!-- <div class="web_qr_login" id="web_qr_login" style="display: block; height: 235px;">    
+    
+            登录
+            <div class="web_login" id="web_login">
+               
+               
+               <div class="login-box">
+    
+            
+    			<div class="login_form">
+    				<form action="login_do" method="post" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post"><input type="hidden" name="did" value="0"/>
+               <input type="hidden" name="to" value="log"/>
+                <div class="uinArea" id="uinArea">
+                <label class="input-tips" for="u">帐号：</label>
+                <div class="inputOuter" id="uArea">
+                    <input type="text" id="u" name="name" class="inputstyle"/>
+                </div>
+                </div>
+                <div class="pwdArea" id="pwdArea">
+               <label class="input-tips" for="p">密码：</label> 
+               <div class="inputOuter" id="pArea">
+                    
+                    <input type="password" id="p" name="pwd" class="inputstyle"/>
+                </div>
+                </div>
+               
+                <div style="padding-left:50px;margin-top:20px;"><input type="submit" value="登 录" style="width:150px;"  class="button_blue" /></div>
+              </form>
+           </div>
+           
+            	</div>
+               
+            </div>
+            登录end
+      </div> -->
+
+  <!--注册-->
+    <div class="qlogin" id="qlogin" style="display: none; ">
+   
+    <div class="web_login"><form name="" id="regUser" accept-charset="utf-8"  action="{:url('login/login_do')}" method="post">
+	      <!-- <input type="hidden" name="to" value="reg"/> -->
+		      		       <!-- <input type="hidden" name="did" value="0"/> -->
+        <ul class="reg_form" id="reg-ul">
+        		<div id="userCue" class="cue">快速注册请注意格式</div>
+                <li>
+                	
+                    <label for="user"  class="input-tips2">用户名：</label>
+                    <div class="inputOuter2">
+                        <input type="text" id="user" name="name" maxlength="16" class="inputstyle2"/>
+                    </div>
+                    
+                </li>
+                
+                <li>
+                <label for="passwd" class="input-tips2">密码：</label>
+                    <div class="inputOuter2">
+                        <input type="password" id="passwd"  name="pwd" maxlength="16" class="inputstyle2"/>
+                    </div>
+                    
+                </li>
+                <li>
+                <label for="passwd2" class="input-tips2">确认密码：</label>
+                    <div class="inputOuter2">
+                        <input type="password" id="passwd2" name="" maxlength="16" class="inputstyle2" autocomplete="new-password"/>
+                    </div>
+                    
+                </li>
+                <li>
+                <label for="tel" class="input-tips2">手机号：</label>
+                    <div class="inputOuter2">
+                        <input type="text" id="tel" name="tel" maxlength="16" class="inputstyle2" autocomplete="new-password"/>
+                        <input type="button" id="btn" style="width:120px;" value="免费获取验证码" />
+                    	<font id="tishi" style="color:red;"></font>
+                    </div>
+                </li>
+                <li>
+                <label for="yanzheng" class="input-tips2">验证码：</label>
+                    <div class="inputOuter2">
+                        <input type="text" id="yanzheng" name="yanzheng" maxlength="16" class="inputstyle2" keydown="check()" autocomplete="new-password"/>
+                        <!-- <span style="color:#999;">输入收到的验证码</span> -->
+                        <font id="tishi1" style="color:red;"></font>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="inputArea">
+                        <input type="button"  id="reg"  style="margin-top:10px;margin-left:85px;" class="button_blue"  value="同意协议并注册" /> <a href="#" class="zcxy" target="_blank">注册协议</a>
+                    </div>
+                    
+                </li><div class="cl"></div>
+            </ul></form>
+    </div>
+    </div>
+
+    <!--注册end-->
+</div>
+</body></html>
+<script>
+	$("#yanzheng").blur(function(){
+		var code1 = $("#yanzheng").val();
+        
+        $.ajax({
+				url:"{:url('login/code_do')}",
+				data:{code1:code1},
+				type:"post",
+				dataType:"json",
+				success:function(msg)
+				{
+
+					if(msg==1)
+					{
+						$("#tishi1").text("验证码正确")
+					}else if(msg ==2)
+					{
+						$("#tishi1").text("验证码错误")
+					}
+					
+				}
+			})
+	})
+	$("#btn").click(function(){
+		var tel = $("#tel").val()
+		if(tel.length!=11)
+		{
+			
+			$("#tishi").text("请输入正确的手机号")
+		}else
+		{
+			
+			$.ajax({
+				url:"{:url('login/phone_do')}",
+				data:{tel:tel},
+				type:"post",
+				dataType:"json",
+				success:function(msg)
+				{
+					if(msg!="")
+					{
+						$("#tishi").remove()
+					}
+					
+				}
+			})
+			var obj = $("#btn");
+		settime(obj);
+			var countdown=60;
+			function settime(obj) { //发送验证码倒计时
+				    if (countdown == 0) { 
+				        obj.attr('disabled',false); 
+				        obj.removeattr("disabled"); 
+				        obj.val("免费获取验证码");
+				        countdown = 60; 
+				        return;
+				    } else { 
+				        obj.attr('disabled',true);
+				        obj.val("重新发送(" + countdown + ")");
+				        countdown--; 
+				    } 
+				setTimeout(function() { 
+				    settime(obj) }
+				    ,1000) 
+				}
+
+		}
+	})
+
+</script>
