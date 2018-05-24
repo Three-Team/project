@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {include file="common/header"}
+    <!--星星评分-->
+    <link href="__css__/application.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__js__/jquery.raty.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $.fn.raty.defaults.path = 'lib/img';
+            $('#star').raty();
+        });
+    </script>
+</head>
+<body>
+<div class="warpe">
+    <div class="head">
+        <a href="#" class="return"><i class="icon-chevron-left"></i> 返回</a>
+        报事报修
+        <a href="{:url('index/Interest_search')}" class="search animated fadeInRight" style="font-size: 1.4rem;">提交</a>
+    </div>
+    <div class="rep_star">
+        <p><span id="star"></span> </p>
+    </div>
+    <div class="edit_t">
+        <textarea rows="8" placeholder="请留下您的宝贵意见，这对我们很重要。" style="border-bottom: .1rem #EFEFEF solid;"></textarea>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ {include file="common/header"}
+
+    <style>
+        .search{font-size: 1.4rem;}
+    </style>
+    <script>
+        $(document).ready(function(){
+            //添加场景
+            $("#scene_bth").click(function(){
+                $(".reveal-modal-bg").fadeIn(500);
+                $(".scene_modal").fadeIn(500);
+            });
+            $(".reveal-modal-bg,.closed").click(function(){
+                $(".modal_img,.reveal-modal-bg").fadeOut(500);
+                $(".scene_modal").fadeOut(500);
+            });
+            //展开悬浮菜单
+            $("#side_bth",this).toggle(function(){
+                $(".bottomnav").animate({bottom:'0rem'},800);
+            },function(){
+                $(".bottomnav").animate({bottom:'-100%'},800);
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="warpe">
+    <div class="head">
+        <a href="#" class="return"><i class="icon-chevron-left"></i> 返回</a>
+        便民服务
+    </div>
+    <div class="scene">
+        <ul>
+            <li class="animated fadeInLeft">
+                <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_sm2.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInRight">
+                <a href="{:url('index/services_no')}">
+                    <img src="__STATIC__/img/icon_yd.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInLeft">
+                <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_jc.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInRight">
+                <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_wc2.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInLeft">
+             <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_sm2.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInLeft">
+               <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_jc.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInRight">
+              <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_wc2.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInLeft">
+               <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_sm2.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInLeft">
+              <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_jc.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInRight">
+               <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_wc2.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInLeft">
+                <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_sm2.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInLeft">
+       <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_jc.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInRight">
+         <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_wc2.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInLeft">
+             <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_sm2.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+            <li class="animated fadeInLeft">
+            <a href="{:url('index/services_list')}">
+                    <img src="__STATIC__/img/icon_jc.png">
+                    <p>服务名称</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="bottomnav animated fadeInUp">
+    <ul>
+        <li class="animated fadeInUp">
+            <a href="{:url('index/My_scene2')}">
+                设置场景任务
+            </a>
+        </li>
+        <li class="animated fadeInUp">
+            <a href="#">
+                定时场景
+            </a>
+        </li>
+        <li class="animated fadeInUp">
+            <a href="#">
+                重命名
+            </a>
+        </li>
+        <li class="animated fadeInUp">
+            <a href="#">
+                删除
+            </a>
+        </li>
+        <li class="animated fadeInUp">
+            <a href="#">
+                取消
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

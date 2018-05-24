@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="common/header"}
+    <script>
+        $(document).ready(function(){
+            //举报
+            $('.report ul li',this).toggle(function(){
+                $('.report ul li span',this).fadeIn(300);
+            },function(){
+                $(".report ul li span").fadeOut(300);
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="warpe">
+    <div class="head">
+        <a href="#" class="return">取消</a>
+        邀请好友
+        <a href="#" class="search animated fadeInRight" style="font-size: 1.4rem;">发送</a>
+    </div>
+    <div class="cardiv">
+        <div class="invit">
+            <ul>
+                <li class="animated fadeInRight">
+                    <input type="checkbox">
+                    <img src="__STATIC__/img/banner.jpg">
+                    <label>薛之谦</label>
+                </li>
+                <li class="animated fadeInLeft">
+                    <input type="checkbox">
+                    <img src="__STATIC__/img/banner.jpg">
+                    <label>wearsion</label>
+                </li>
+                <li class="animated fadeInRight">
+                    <input type="checkbox">
+                    <img src="__STATIC__/img/banner.jpg">
+                    <label>海飞韵</label>
+                </li>
+                <li class="animated fadeInLeft">
+                    <input type="checkbox">
+                    <img src="__STATIC__/img/banner.jpg">
+                    <label>wearsion</label>
+                </li>
+                <li class="animated fadeInRight">
+                    <input type="checkbox">
+                    <img src="__STATIC__/img/banner.jpg">
+                    <label>海飞韵</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__JS__/idangerous.swiper.min.js"></script>
+<script type="text/javascript">
+    var tabsSwiper = new Swiper('.swiper-container',{
+        speed:500,
+        onSlideChangeStart: function(){
+            $(".tabs .active").removeClass('active');
+            $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+        }
+    });
+    $(".tabs a").on('touchstart mousedown',function(e){
+        e.preventDefault()
+        $(".tabs .active").removeClass('active')
+        $(this).addClass('active')
+        tabsSwiper.slideTo( $(this).index() )
+    })
+    $(".tabs a").click(function(e){
+        e.preventDefault()
+    })
+</script>
+</body>
+</html>
