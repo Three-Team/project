@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ {include file="common/header"}
+    <!--星星评分-->
+    <link href="__CSS__/application.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__JS__/jquery.raty.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $.fn.raty.defaults.path = 'lib/img';
+            $('#star').raty({ readOnly: true, score: 3 });
+        });
+    </script>
+</head>
+<body>
+<div class="warpe">
+    <div class="head">
+        <a href="#" class="return"><i class="icon-chevron-left"></i> 返回</a>
+        报事报修
+        <a href="{:url('index/Repair03')}" class="search animated fadeInRight" style="font-size: 1.4rem;">我要报事</a>
+    </div>
+    <div class="repall">
+        <ul>
+            <li class="animated fadeInLeft">
+                <p><span>2016-11-02 09:02:08</span><a href="#" class="puff_right">完成</a> </p>
+                <p>我家主卧洗手间下水道堵塞</p>
+                <p><a href="{:url('index/Repair02')}">服务评价</a></p>
+            </li>
+            <li class="animated fadeInRight">
+                <p><span>2016-11-02 09:02:08</span><a href="#" class="puff_right color_g2">受理</a> </p>
+                <p>我家主卧洗手间下水道堵塞</p>
+            </li>
+            <li class="animated fadeInLeft">
+                <p><span>2016-11-02 09:02:08</span><a href="#" class="puff_right">完成</a> </p>
+                <p>我家主卧洗手间下水道堵塞</p>
+                <p><a href="{:url('index/Repair02')}">服务评价</a></p>
+            </li>
+            <li class="animated fadeInRight">
+                <p><span>2016-11-02 09:02:08</span><a href="#" class="puff_right color_y">派单</a> </p>
+                <p>我家主卧洗手间下水道堵塞</p>
+                <p><span>评价：</span><span id="star"></span></p>
+                <p><span>意见：啥玩意啊，处理得这么慢</span></p>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
